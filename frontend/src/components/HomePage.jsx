@@ -1,7 +1,6 @@
-// src/components/HomePage.jsx
 import React from 'react';
 import TaskCard from './TaskCard';
-import './HomePage.css'; // Import the corresponding CSS
+import './HomePage.css';
 
 const HomePage = ({ tasks }) => {
     return (

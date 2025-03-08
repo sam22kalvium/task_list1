@@ -30,19 +30,6 @@ const App = () => {
     fetchTasks();
   }, []);
 
-
-
-  const addTask = async (task) => {
-    try {
-      const response = await axios.post(`${API_BASE_URL}/tasks`, task);
-      setTasks([response.data, ...tasks]);
-    } catch (err) {
-      console.error('Error adding task:', err);
-      throw err; // Let the TaskForm handle the error
-    }
-  };
-
-
   if (loading) {
     return <div>Loading tasks...</div>;
   }
@@ -55,10 +42,9 @@ const App = () => {
     <div className="App">
       <h1>My Task List</h1>
       <TaskForm onTaskCreated={fetchTasks} />
-      <HomePage tasks={tasks} refreshTasks={setTasks} />
+      <HomePage tasks={tasks} />
     </div>
   );
 };
 
 export default App;
-
